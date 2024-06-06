@@ -1,10 +1,49 @@
 <script>
 export default {
+    name: "News",
+    props: {
+        blogImg: Array,
+    },
     data() {
         return {
-
+            active: 0,
+            nImage: [1, 2, 3]
         }
-    }
+    },
+    methods: {
+        getSvg(name, isSvg) {
+            if (isSvg) {
+                return new URL(`../../assets/svg/${name}`, import.meta.url).href;
+            } else {
+                return new URL(`../../assets/img/${name}`, import.meta.url).href;
+            }
+        },
+        nextImg() {
+
+            if (this.active == 3) {
+                this.active = 0;
+            } else {
+                this.active++;
+            }
+
+        },
+        prevImg() {
+
+            if (this.active == 0) {
+                this.active = 3;
+            } else {
+                this.active--;
+            }
+
+        },
+        activeImg(index) {
+            if (index == this.active) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
 }
 </script>
 
@@ -15,40 +54,55 @@ export default {
             <h2 class="titolo">Latest news<span class="arancio">.</span></h2>
             <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eaque.</p>
             <hr class="linea">
-            
+
             <div class="carousel">
 
-                <div class="card">
-
-                    <img src="/src/assets/img/h1-blog-img-02.jpg" alt="">
-                    <p class="tag"><i class="fa-solid fa-tag"></i> Business Leading</p>
-                    <p class="author"><i class="fa-regular fa-clock"></i> May 5, 2019 <i class="fa-regular fa-user"></i> Amanda Doe</p>
-                    <h2 class="titolo">Next investments</h2>
-                    <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eaque.</p>
-                    <p class="readme">READ ME</p>
-                
+                <div @click="prevImg()" class=" text-dark freccia">
+                    <i class="fa-solid fa-arrow-left-long"></i>
                 </div>
+                <div v-for="element, index in blogImg" v-show="activeImg(index)" class="card">
 
-                <div class="card">
-
-                    <img src="/src/assets/img/h1-blog-img-02.jpg" alt="">
+                    <img :src="getSvg(element, false)">
                     <p class="tag"><i class="fa-solid fa-tag"></i> Business Leading</p>
-                    <p class="author"><i class="fa-regular fa-clock"></i> May 5, 2019 <i class="fa-regular fa-user"></i> Amanda Doe</p>
+                    <p class="author"><i class="fa-regular fa-clock"></i> May 5, 2019 <i class="fa-regular fa-user"></i>
+                        Amanda Doe</p>
                     <h2 class="titolo">Next investments</h2>
-                    <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eaque.</p>
+                    <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
+                        eaque.</p>
                     <p class="readme">READ ME</p>
 
                 </div>
-                <div class="card">
 
-                    <img src="/src/assets/img/h1-blog-img-02.jpg" alt="">
+                <div v-for="element, index in blogImg" v-show="activeImg(index + 1)" class="card">
+
+                    <img :src="getSvg(element, false)">
                     <p class="tag"><i class="fa-solid fa-tag"></i> Business Leading</p>
-                    <p class="author"><i class="fa-regular fa-clock"></i> May 5, 2019 <i class="fa-regular fa-user"></i> Amanda Doe</p>
+                    <p class="author"><i class="fa-regular fa-clock"></i> May 5, 2019 <i class="fa-regular fa-user"></i>
+                        Amanda Doe</p>
                     <h2 class="titolo">Next investments</h2>
-                    <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eaque.</p>
+                    <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
+                        eaque.</p>
                     <p class="readme">READ ME</p>
 
                 </div>
+
+                <div v-for="element, index in blogImg" v-show="activeImg(index + 2)" class="card">
+
+                    <img :src="getSvg(element, false)">
+                    <p class="tag"><i class="fa-solid fa-tag"></i> Business Leading</p>
+                    <p class="author"><i class="fa-regular fa-clock"></i> May 5, 2019 <i class="fa-regular fa-user"></i>
+                        Amanda Doe</p>
+                    <h2 class="titolo">Next investments</h2>
+                    <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
+                        eaque.</p>
+                    <p class="readme">READ ME</p>
+
+                </div>
+
+                <div @click="nextImg()" class="text-dark freccia">
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+
             </div>
         </div>
     </div>
@@ -91,6 +145,11 @@ export default {
     display: flex;
     gap: 1rem;
     width: 100%;
+    align-items: center;
+}
+
+.freccia {
+    font-size: 24px;
 }
 
 .card {

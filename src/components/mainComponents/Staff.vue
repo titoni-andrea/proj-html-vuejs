@@ -9,7 +9,7 @@ export default{
 </script>
 
 <template>
-    <!-- <h1>Questo è Staff</h1> -->
+    <h1>Questo è Staff</h1>
 </template>
 
 <style scoped></style>

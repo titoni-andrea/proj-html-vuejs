@@ -1,6 +1,5 @@
 <script>
 import store from "../data/store.js";
-import Jumbotron from "./mainComponents/Jumbotron.vue";
 import Achievements from "./mainComponents/Achievements.vue";
 import Bigvideo from "./mainComponents/Bigvideo.vue";
 import Contacts from "./mainComponents/Contacts.vue";
@@ -14,8 +13,7 @@ import Stats from "./mainComponents/Stats.vue";
 import Testimonials from "./mainComponents/Testimonials.vue";
 export default {
     name: "MyAppMain",
-    components:{
-        Jumbotron,
+    components: {
         Achievements,
         Bigvideo,
         Contacts,
@@ -28,35 +26,30 @@ export default {
         Stats,
         Testimonials
     },
-        data() {
-    return {
-        store
+    data() {
+        return {
+            store,
+        }
+    },
+    methods: {
+    },
+    mounted() {
     }
-},
-methods: {
-},
-mounted() {
-}
 }
 </script>
 
 <template>
 
-    <h1>Questo è il main</h1>
-
-    <Jumbotron />
-    <Specialties />
-    <Founder />
-    <Events />
+    <Specialties :cardInfo="store.immagini.skillsIcon"/>
+    <Founder :foundersImg="store.immagini.foundersImg"/>
+    <Events :events="store.events" />
     <Stats />
-    <News />
+    <News :blogImg="store.immagini.blog"/>
     <Testimonials />
     <Bigvideo />
-    <Achievements />
-    <Staff />
     <Contacts />
-    <Plans />
 
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
