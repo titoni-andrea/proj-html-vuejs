@@ -28,7 +28,7 @@ export default {
                             } else if (this.mentorship == 78) {
                                 clearInterval(this.timer1)
                             }
-                        }, 2000 / 78);
+                        }, 3000 / 78);
                         // observer78.unobserve(entry.target);
                     }
                 })
@@ -49,7 +49,7 @@ export default {
                             } else if (this.mentorship == 95) {
                                 clearInterval(this.timer2)
                             }
-                        }, 2000 / 95);
+                        }, 3000 / 95);
                         // observer95.unobserve(entry.target);
                     }
                 })
@@ -69,7 +69,7 @@ export default {
                             } else if (this.mentorship == 65) {
                                 clearInterval(this.timer3)
                             }
-                        }, 2000 / 65);
+                        }, 3000 / 65);
                         // observer65.unobserve(entry.target);
                     }
                 })
@@ -89,7 +89,7 @@ export default {
                             } else if (this.mentorship == 83) {
                                 clearInterval(this.timer4)
                             }
-                        }, 2000 / 83);
+                        }, 3000 / 83);
                         // observer83.unobserve(entry.target);
                     }
                 })

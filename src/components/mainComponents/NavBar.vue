@@ -11,11 +11,12 @@ export default {
         }
     },
     methods: {
-        showElements() {
-            this.elementsVisible = true;
-        },
-        hideElements() {
-            this.elementsVisible = false;
+        changeVisibility () {
+            if (this.elementsVisible == false) {
+                this.elementsVisible = true
+            } else {
+                this.elementsVisible = false
+            }
         }
 
 
@@ -36,13 +37,15 @@ export default {
             </div>
 
             <!-- DROPDOWN LINK NAV -->
+
+
             <div class="dropdown d-flex">
 
 
-                <div class="text-dark">⟶</div>
+                <div class="arrow">⟶</div>
                 <div class="dropdown">
-                    <a class="dropdown-item pe-4 text-dark fw-bold" href="#" id="dropdownHomes"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" orange_text pe-4  fw-bold" href="#" id="dropdownHomes" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         HOMES
                     </a>
 
@@ -52,10 +55,10 @@ export default {
                 </div>
 
 
-                <div class="text-dark">⟶</div>
+                <div class="arrow">⟶</div>
                 <div class="dropdown">
-                    <a class="dropdown-item pe-4 text-dark fw-bold" href="#" id="dropdownHomes"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="orange_text pe-4  fw-bold" href="#" id="dropdownHomes" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         PAGES
                     </a>
 
@@ -65,10 +68,10 @@ export default {
                 </div>
 
 
-                <div class="text-dark">⟶</div>
+                <div class="arrow">⟶</div>
                 <div class="dropdown">
-                    <a class="dropdown-item pe-4 text-dark fw-bold" href="#" id="dropdownHomes"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="orange_text pe-4 fw-bold" href="#" id="dropdownHomes" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         BLOG
                     </a>
 
@@ -78,11 +81,11 @@ export default {
                     </div>
                 </div>
 
-                <div class="text-dark">⟶</div>
+                <div class="arrow">⟶</div>
                 <div class="dropdown">
 
-                    <a class="dropdown-item pe-4 text-dark fw-bold" href="#" id="dropdownHomes"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" pe-4 orange_text fw-bold" href="#" id="dropdownHomes" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         SHOP
                     </a>
 
@@ -91,11 +94,11 @@ export default {
                     </div>
                 </div>
 
-                <div class="text-dark">⟶</div>
+                <div class="arrow">⟶</div>
                 <div class="dropdown">
 
-                    <a class="dropdown-item pe-4 text-dark fw-bold" href="#" id="dropdownHomes"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="orange_text pe-4  fw-bold" href="#" id="dropdownHomes" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         EVENTS
                     </a>
 
@@ -104,56 +107,92 @@ export default {
                     </div>
                 </div>
 
-                <span class="text-dark arrow">⟶</span>
+                <span class="arrow">⟶</span>
 
                 <div>
 
-                    <a class="pe-4 dropdown-item text-dark fw-bold" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#collapseContent" aria-expanded="false">
+                    <a class="pe-4 orange_text fw-bold" href="#" data-bs-toggle="collapse"
+                        data-bs-target="#collapseElements" aria-expanded="false">
                         ELEMENTS
                     </a>
 
                 </div>
 
 
-                <a class="dropdown-item pe-4 text-dark fw-bold" href="#">
+                <a @click="changeVisibility ()" class="dropdown-item pe-4 text-dark fw-bold" href="#">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
 
-                <a class="dropdown-item pe-3 text-dark fw-bold" href="#">
+
+                <a class="dropdown-item pe-3 text-dark fw-bold" href="#" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <i class="fa-solid fa-bars"></i>
                 </a>
+
+                <div class="offcanvas offcanvas-end bg-dark text-light " data-bs-scroll="true" tabindex="-1"
+                    id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header d-flex flex-column">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <img class="mt-5 mb-5" src="../../assets/svg/svg-1.svg">
+                        <h2 class="offcanvas-title" id="offcanvasRightLabel">Everlead Theme<i
+                                class="fa-solid fa-circle"></i></h2>
+
+
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column">
+                        <span class="text-center mb-2 contactCanvas"><i class="fa-solid fa-location-dot"
+                                style="color: #FF4612;"></i>457 BigBlue Street, NY 10013</span>
+                        <span class="text-center mb-2 contactCanvas"><i class="fa-solid fa-phone"
+                                style="color: #FF4612;"> </i>(315) 5512-2579</span>
+                        <span class="text-center mb-4 contactCanvas "><i class="fa-regular fa-envelope"
+                                style="color: #FF4612;"></i>everlead@qodeinteractive.com</span>
+                        <div style="margin-left: 5%;" class="d-flex justify-content-center"><input
+                                class="bg-dark inputCanvas  " type="text" placeholder="Text">
+                            <p class="mb-0">SUBSCRIBE</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
 
             </div>
 
         </div>
+        <div v-if="elementsVisible" class="form-outline searchNav" data-mdb-input-init>
+            <input style="height: 100%;" type="search" id="form1" class="form-control" placeholder="Search...." aria-label="Search" />
+            <i @click="changeVisibility()" class="fa-solid fa-xmark" style="color: black; cursor: pointer;" ></i>
+        </div>
+
     </nav>
 
-    <div id="collapseContent" class="bg-dark collapse elementsContainer ">
+    <div id="collapseElements" class="bg-dark collapse elementsContainer ">
         <div class="container d-flex">
             <div class="col-3 p-4">
-                <h2>Classic</h2>
+                <h2 style="color: white;">Classic</h2>
                 <ul class="list-group">
                     <li class="elements list-group p-1 lightslategray"
                         v-for="element in this.store.navBar.elements.classic">{{ element }}</li>
                 </ul>
             </div>
             <div class="col-3 p-4">
-                <h2>Presentational</h2>
+                <h2 style="color: white;"> Presentational</h2>
                 <ul class="list-group">
                     <li class="elements list-group p-1 lightslategray"
                         v-for="element in this.store.navBar.elements.presentational">{{ element }}</li>
                 </ul>
             </div>
             <div class="col-3 p-4">
-                <h2>Infographic</h2>
+                <h2 style="color: white;">Infographic</h2>
                 <ul class="list-group">
                     <li class="elements list-group p-1 lightslategray"
                         v-for="element in this.store.navBar.elements.infographic">{{ element }}</li>
                 </ul>
             </div>
             <div class="col-3 p-4">
-                <h2>Typography</h2>
+                <h2 style="color: white;">Typography</h2>
                 <ul class="list-group">
                     <li class="elements list-group p-1 lightslategray"
                         v-for="element in this.store.navBar.elements.typography">{{ element }}</li>
@@ -181,9 +220,18 @@ export default {
 }
 
 .dropdown-menu {
-    background-color: black;
+    background-color: #212529;
     width: 17rem;
     padding: 1rem;
+}
+
+.orange_text {
+    text-decoration: none;
+    color: black;
+}
+
+.orange_text:hover {
+    color: #FF4612;
 }
 
 .dropdown-item {
@@ -202,6 +250,10 @@ export default {
 
 }
 
+.arrow {
+    color: #FF4612;
+}
+
 .elements {
     color: lightslategray;
 }
@@ -210,7 +262,44 @@ export default {
     color: rgb(255, 255, 255);
     cursor: pointer;
 }
-h2{
-    color:white;
+
+.fa-circle {
+    color: #FF4612;
+    font-size: 0.3rem;
 }
+
+.inputCanvas {
+    border: none;
+
+}
+
+.inputCanvas:focus-visible {
+    border: black;
+}
+
+.contactCanvas {
+    font-size: 15px;
+    color: lightslategray;
+}
+
+.contactCanvas:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.searchNav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+
+}
+
+.fa-xmark {
+    position: absolute;
+    top: 35%;
+    right: 3%;
+}
+
 </style>

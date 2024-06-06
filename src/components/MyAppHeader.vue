@@ -25,25 +25,23 @@ export default {
             clearInterval(this.timer)
             if (this.bgActive >= 2) {
                 this.bgActive = 0
-
+                
             } else {
                 this.bgActive++;
-
+                
             };
             this.timer = setInterval(this.nextImage, 2000);
-
+            
 
 
         },
 
         prevImage() {
-            clearInterval(this.timer);
             if (this.bgActive <= 0) {
                 this.bgActive = 2
             } else {
                 this.bgActive--;
             };
-            this.timer = setInterval(this.nextImage, 2000);
         }
 
     },
@@ -65,7 +63,7 @@ export default {
 
             <a @click="prevImage()" class="text-dark btn fs-1 arrowLeft">⟵</a>
             <!-- CARD JUMBOTRON -->
-            <CardJumbotron :active="bgActive" />
+            <CardJumbotron :active="bgActive"/>
             <!-- CARD JUMBOTRON -->
             <a @click="nextImage()" class="text-dark btn fs-1 arrowRight">⟶</a>
 
@@ -78,16 +76,19 @@ export default {
 .bgHeader-1 {
     height: 100vh;
     background-image: url(../assets/img/h1-rev-img-01.jpg);
+    background-size: cover;
 }
 
 .bgHeader-2 {
     height: 100vh;
     background-image: url(../assets/img/rev-slider-main-home-img-02.png);
+    background-size: cover;
 }
 
 .bgHeader-3 {
     height: 100vh;
     background-image: url(../assets/img/rev-slider-main-home-img-03.jpg);
+    background-size: cover;
 }
 
 
@@ -106,10 +107,12 @@ export default {
 .arrowLeft {
     position: absolute;
     left: 3%;
+
 }
 
 .arrowRight {
     position: absolute;
     right: 3%;
+    
 }
 </style>
