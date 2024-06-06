@@ -58,7 +58,22 @@ export default {
         <div class="cont-flex">
             <div class="cont-form">
                 <div class="mappamondo">
-                    <img src="/src/assets/img/h1-contact-rev-01.png" alt="">
+                    <img class="mondo" src="/src/assets/img/h1-contact-rev-01.png" alt="">
+                    <img class="pulsante-mondo pos1" src="/src/assets/img/h1-contact-rev-02.png">
+                    <img class="pulsante-mondo pos2" src="/src/assets/img/h1-contact-rev-02.png">
+                    <div class="posizione new-york">
+                       <h2>New York Coaching</h2>
+                       <p>READ ME</p> 
+                    </div>
+                    <div class="posizione london">
+                       <h2>London Coaching</h2>
+                       <p>READ ME</p> 
+                    </div>
+                    <img class="pulsante-mondo pos3" src="/src/assets/img/h1-contact-rev-02.png">
+                    <div class="posizione melbourne">
+                       <h2>Melbourne Coaching</h2>
+                       <p>READ ME</p> 
+                    </div>
                 </div>
                 <div class="form-contact">
                     <h2 class="titolo">Contact us<span class="arancio">.</span></h2>
@@ -130,10 +145,78 @@ export default {
 .mappamondo {
     width: 45%;
     padding: 1.5rem;
+    position: relative;
 }
 
-.mappamondo img {
+.mondo {
     width: 100%;
+}
+
+.pulsante-mondo {
+    width: 4%;
+    position: absolute;
+}
+
+.pos1 {
+    top: 26%;
+    left: 50%;
+}
+
+
+.posizione {
+    width: 41%;
+    background-color: white;
+    padding: 10px 15px;
+    box-shadow: 2px 2px 5px 2px rgb(206, 205, 205);
+    border-radius: 1px;
+    position: absolute;
+    display: none;
+}
+
+.posizione h2 {
+    font-size: 20px;
+}
+
+.posizione p {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.new-york {
+    top: 43%;
+    left: 28%;
+}
+
+.pos2 {
+    top: 33%;
+    left: 26%;
+}
+
+.pos2:hover ~ .new-york {
+    display: block;
+}
+
+.london {
+    top: -1%;
+    left: 54%;
+}
+
+.pos1:hover ~ .london {
+    display: block;
+}
+
+.pos3 {
+    top: 70%;
+    left: 79%;
+}
+
+.melbourne {
+    top: 80%;
+    left: 45%;
+}
+
+.pos3:hover ~ .melbourne {
+    display: block;
 }
 
 .form-contact {
