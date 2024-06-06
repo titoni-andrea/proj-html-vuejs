@@ -49,9 +49,10 @@ export default {
 
 <template>
     <div class="cont-flex">
+        <img class="svg-sfondo" src="/src/assets/svg/svg-4.svg" alt="">
         <div class="news">
 
-            <h2 class="titolo">Latest news<span class="arancio">.</span></h2>
+            <h2 class="titolo-principale">Latest news<span class="arancio">.</span></h2>
             <p class="sottotitolo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eaque.</p>
             <hr class="linea">
 
@@ -111,20 +112,36 @@ export default {
 <style scoped>
 .cont-flex {
     background-color: #FAFAFA;
+    position: relative;
 }
+
+.svg-sfondo {
+    position: absolute;
+    top: -230px;
+    width: 28%;
+    left: 200px;
+}
+
 
 .news {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4rem 0px;
+    padding: 10rem 0px 4rem 0px;
     width: 1200px;
     margin: auto;
+}
+
+.titolo-principale {
+    color: #222;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 48px;
 }
 
 .titolo {
     color: #222;
     font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
 }
 
 .arancio {
@@ -167,6 +184,7 @@ export default {
     color: rgb(183, 181, 181);
     font-size: 12px;
     margin-bottom: 0px;
+    margin-top: 20px;
 }
 
 .author i {
@@ -175,9 +193,12 @@ export default {
 
 .tag {
     background-color: #FE4613;
-    width: 33%;
+    width: 38%;
     color: rgb(209, 208, 208);
-    padding: 5px 8px;
+    padding: 8px 10px;
     font-size: 12px;
+    position: absolute;
+    top: 52%;
+    left: 60%;
 }
 </style>

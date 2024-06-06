@@ -160,7 +160,7 @@ export default {
 
 <style scoped>
 .row {
-    background-color: #FAFAFA;
+    background-color: #fff;
     color: black;
 }
 
