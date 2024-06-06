@@ -67,7 +67,7 @@ const store = reactive({
         ],
         logos: {
             standard: ["h4-clients-img-01.png", "h4-clients-img-03.png", "h4-clients-img-05.png", "h4-clients-img-07.png", "h4-clients-img-09.png"],
-            hovered: ["h4-clients-img-02.png", "h4-clients-img-04.png", "h4-clients-img-06.png", "h4-clients-img-08.png", "h4-clients-img-10.png"],
+            hovered: ["h4-clients-img-02.png", "h4-clients-img-04-1.png", "h4-clients-img-06-1.png", "h4-clients-img-08-1.png", "h4-clients-img-10-1.png"],
         }
     },
     events: [

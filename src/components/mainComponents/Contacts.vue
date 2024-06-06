@@ -2,7 +2,7 @@
 export default {
     name: "Founder",
     props: {
-        sponsorImg: Array
+        sponsorImg: Object
     },
     data() {
         return {
@@ -48,6 +48,7 @@ export default {
         this.timer = setInterval(() => {
             this.nextImg();
         }, 5000);
+        
     }
 }
 </script>
@@ -76,11 +77,30 @@ export default {
                 </div>
             </div>
             <div class="sponsor">
-                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg(index)":src="getSvg(element, false)"> 
-                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 1)%5)":src="getSvg(element, false)">
-                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 2)%5)":src="getSvg(element, false)">
-                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 3)%5)":src="getSvg(element, false)">
-                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 4)%5)":src="getSvg(element, false)">
+                <div class="cont-img-sponsor">
+                    <img v-for="element, index in sponsorImg.hovered"  v-show="activeImg(index)":src="getSvg(element, false)" class="sponsor-hovered">
+                    <img v-for="element, index in sponsorImg.standard"  v-show="activeImg(index)":src="getSvg(element, false)">  
+                </div>
+            
+                <div class="cont-img-sponsor">
+                    <img v-for="element, index in sponsorImg.hovered"  v-show="activeImg((index+1)%5)":src="getSvg(element, false)" class="sponsor-hovered">
+                    <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index+1)%5)":src="getSvg(element, false)">  
+                </div>
+
+                <div class="cont-img-sponsor">
+                    <img v-for="element, index in sponsorImg.hovered"  v-show="activeImg((index+2)%5)":src="getSvg(element, false)" class="sponsor-hovered">
+                    <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index+2)%5)":src="getSvg(element, false)">  
+                </div>
+
+                <div class="cont-img-sponsor">
+                    <img v-for="element, index in sponsorImg.hovered"  v-show="activeImg((index+3)%5)":src="getSvg(element, false)" class="sponsor-hovered">
+                    <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index+3)%5)":src="getSvg(element, false)">  
+                </div>
+
+                <div class="cont-img-sponsor">
+                    <img v-for="element, index in sponsorImg.hovered"  v-show="activeImg((index+4)%5)":src="getSvg(element, false)" class="sponsor-hovered">
+                    <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index+4)%5)":src="getSvg(element, false)">  
+                </div>
             </div>
         </div>
     </div>
@@ -191,6 +211,21 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-around;
+}
+
+.cont-img-sponsor {
+    position: relative;
+}
+
+.sponsor-hovered {
+position: absolute;
+left: 0px;
+opacity: 0%;
+}
+
+.sponsor-hovered:hover {
+    opacity: 100%;
+    transition: 0.5s;
 }
 
 </style>
