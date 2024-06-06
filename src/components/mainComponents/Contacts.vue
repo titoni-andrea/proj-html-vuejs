@@ -1,9 +1,53 @@
 <script>
 export default {
+    name: "Founder",
+    props: {
+        sponsorImg: Array
+    },
     data() {
         return {
-
+            timer: null,
+            active: 0,
         }
+    },
+    methods: {
+        getSvg(name, isSvg) {
+            if (isSvg) {
+                return new URL(`../../assets/svg/${name}`, import.meta.url).href;
+            } else {
+                return new URL(`../../assets/img/${name}`, import.meta.url).href;
+            }
+        },
+        nextImg() {
+            clearInterval(this.timer);
+            if (this.active == 4) {
+                this.active = 0;
+            } else {
+                this.active++;
+            }
+            this.timer = setInterval(this.nextImg, 5000);
+        },
+        prevImg() {
+            clearInterval(this.timer);
+            if (this.active == 0) {
+                this.active = 4;
+            } else {
+                this.active--;
+            }
+            this.timer = setInterval(this.prevImg, 5000);
+        },
+        activeImg(index) {
+            if (index == this.active) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+    mounted() {
+        this.timer = setInterval(() => {
+            this.nextImg();
+        }, 5000);
     }
 }
 </script>
@@ -32,11 +76,11 @@ export default {
                 </div>
             </div>
             <div class="sponsor">
-                <img src="/src/assets/img/h4-clients-img-01.png" alt="">
-                <img src="/src/assets/img/h4-clients-img-03.png" alt="">
-                <img src="/src/assets/img/h4-clients-img-05.png" alt="">
-                <img src="/src/assets/img/h4-clients-img-07.png" alt="">
-                <img src="/src/assets/img/h4-clients-img-09.png" alt="">
+                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg(index)":src="getSvg(element, false)"> 
+                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 1)%5)":src="getSvg(element, false)">
+                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 2)%5)":src="getSvg(element, false)">
+                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 3)%5)":src="getSvg(element, false)">
+                <img v-for="element, index in sponsorImg.standard"  v-show="activeImg((index + 4)%5)":src="getSvg(element, false)">
             </div>
         </div>
     </div>
