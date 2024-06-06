@@ -26,7 +26,7 @@ prende in ingresso delle props che contengono i file svg.
 ### Testimonials
 - Testimonials è il componente che fa vedere le recensioni nel sito una alla volta con un carosello, prende in ingreso come props un oggetto che passa immagine, nome e descrizione.
 ### Bigvideo
--
+- BigVideo è il componente che al click del pulsante play fa partire un video, che in questo caso abbiamo importato da youtube, abbiamo creato un data per gestire se sia visibile o meno, abbiamo creato un metodo per che con un if gestisce la visibilità, e quando si clicca al di fouri del video scompare.
 ### Contacts
 - Contacts è il componente dove si trova il for del sito, un mappamondo che mostra le sedi in giro per il mondo, e gli sponsor che fanno parte dell'azienda, nel mappamondo se si va in hover con il mouse compaiono i dettagli di ogni sede, gli sponsor sono un carosello che con un timer fa andare avanti le immagini e se si va in hover ne cambia il colore, questo componente prende come props un oggetto che passa i due tipi di immagini sponsor, normali e hovered.
 ## MyAppFooter
