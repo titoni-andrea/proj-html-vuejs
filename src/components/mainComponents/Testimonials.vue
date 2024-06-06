@@ -1,10 +1,43 @@
 <script>
 export default {
+    props: {
+        testImg: Array
+    },
     data() {
         return {
-
+            active: 0,
         }
-    }
+    },
+    methods: {
+        getSvg(name, isSvg) {
+            if (isSvg) {
+                return new URL(`../../assets/svg/${name}`, import.meta.url).href;
+            } else {
+                return new URL(`../../assets/img/${name}`, import.meta.url).href;
+            }
+        },
+        nextImg() {
+            if (this.active == 2) {
+                this.active = 0;
+            } else {
+                this.active++;
+            }
+        },
+        prevImg() {
+            if (this.active == 0) {
+                this.active = 2;
+            } else {
+                this.active--;
+            }
+        },
+        activeImg(index) {
+            if (index == this.active) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
 }
 </script>
 
@@ -12,13 +45,12 @@ export default {
 
     <div class="testimonials">
         <h1 class="titolo">Testimonials.</h1>
-        <i class="fa-solid fa-arrow-left-long next"></i>
-        <i class="fa-solid fa-arrow-right-long back"></i>
-        <div class="recensione">
-            <img src="/src/assets/img/h3-img-04.png" alt="">
-            <h4 class="nome-recensione">Cynthia clark</h4>
-            <p class="descrizione">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptatem earum
-                voluptatum incidunt velit, odio optio recusandae dignissimos similique vero."</p>
+        <i @click="prevImg()" class="fa-solid fa-arrow-left-long next"></i>
+        <i @click="nextImg()" class="fa-solid fa-arrow-right-long back"></i>
+        <div v-for="element, index in testImg" v-show="activeImg(index)" class="recensione">
+            <img :src="getSvg(element.img, false)">
+            <h4 class="nome-recensione">{{element.name}}</h4>
+            <p class="descrizione">{{element.description}}</p>
         </div>
     </div>
 </template>

@@ -45,7 +45,7 @@ export default {
     <Events :events="store.events" />
     <Stats />
     <News :blogImg="store.immagini.blog"/>
-    <Testimonials />
+    <Testimonials :testImg="store.immagini.testimonialsAvatar"/>
     <Bigvideo />
     <Contacts />
 

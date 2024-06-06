@@ -73,7 +73,7 @@ export default {
 
                 </div>
 
-                <div v-for="element, index in blogImg" v-show="activeImg(index + 1)" class="card">
+                <div v-for="element, index in blogImg" v-show="activeImg((index + 1)%4)" class="card">
 
                     <img :src="getSvg(element, false)">
                     <p class="tag"><i class="fa-solid fa-tag"></i> Business Leading</p>
@@ -86,7 +86,7 @@ export default {
 
                 </div>
 
-                <div v-for="element, index in blogImg" v-show="activeImg(index + 2)" class="card">
+                <div v-for="element, index in blogImg" v-show="activeImg((index + 2)%4)" class="card">
 
                     <img :src="getSvg(element, false)">
                     <p class="tag"><i class="fa-solid fa-tag"></i> Business Leading</p>
